@@ -13,12 +13,21 @@
   margin: 100px auto;
   background-color: #f0f0f0;
   border-radius: 20px;
+  overflow: hidden;
 }
 
 .box {
   width: 100px;
   height: 100px;
   background-color: #f4f;
+}
+
+.line {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: 2px;
+  background-color: #000;
 }
 
 .circle {
@@ -30,13 +39,6 @@
   opacity: 0.6;
 }
 
-.line {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  height: 2px;
-  background-color: #000;
-}
 </style>
 </head>
 
@@ -54,8 +56,7 @@
     type: "x,y",
     edgeResistance: 0.65,
     bounds: "#container",
-    throwProps: true,
-    ease: Bounce.easeInOut
+    throwProps: true
   });
   Draggable.create(".circle", {
     type: "x,y",
@@ -63,6 +64,7 @@
     bounds: "#container",
     throwProps: true,
     onDragEnd: function(e) {
+      console.log("dragEnd");
       //see if the target overlaps with the element with ID "element2"
       if (this.hitTest(".box", 20)) {
         //do stuff
@@ -78,6 +80,18 @@
           ease: Power0.easeNone
         })
       }
+    },
+    onPress: function(e){
+      console.log("press");
+    },
+    onDragStart: function(e){
+      console.log("startDrag");
+    },
+    onDrag: function(e){
+      console.log("onDrag");
+    },
+    onClick: function(e){
+      console.log("onClick");
     }
   });
 </script>
