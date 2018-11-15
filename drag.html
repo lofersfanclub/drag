@@ -65,6 +65,15 @@
     throwProps: true,
     onDragEnd: function(e) {
       console.log("dragEnd");
+    },
+    onPress: function(e){
+      console.log("press");
+    },
+    onDragStart: function(e){
+      console.log("startDrag");
+    },
+    onDrag: function(e){
+      console.log("onDrag");
       //see if the target overlaps with the element with ID "element2"
       if (this.hitTest(".box", 20)) {
         //do stuff
@@ -80,15 +89,6 @@
           ease: Power0.easeNone
         })
       }
-    },
-    onPress: function(e){
-      console.log("press");
-    },
-    onDragStart: function(e){
-      console.log("startDrag");
-    },
-    onDrag: function(e){
-      console.log("onDrag");
     },
     onClick: function(e){
       console.log("onClick");
